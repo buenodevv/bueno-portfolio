@@ -1,6 +1,8 @@
+"use client"
 import Link from "next/link";
 import Nav from "./Nav";
 import { Button } from "./ui/button";
+import MobileNav from "./MobileNav";
 
 function Header() {
   return (
@@ -21,7 +23,7 @@ function Header() {
         </div>
         {/* Navigation mobile */}
         <div className="xl:hidden">
-          Mobile nav
+          <MobileNav />
         </div>
       </div>
     </header>
