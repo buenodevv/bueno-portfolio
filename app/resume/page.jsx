@@ -9,7 +9,7 @@ import {
   FaGithub,
 } from "react-icons/fa"
 
-import {SiTailwindcss, SiNextdotjs} from "react-icons/si"
+import { SiTailwindcss, SiNextdotjs } from "react-icons/si"
 
 //about data
 const about = {
@@ -108,7 +108,7 @@ const education = {
       duration: "2020 - 2021",
     },
     {
-      institution: "TEch Institute",
+      institution: "Tech Institute",
       course: "Certifield Web Developer",
       duration: "2019",
     },
@@ -122,8 +122,54 @@ const education = {
       course: "Associate Degree in Computer Science",
       duration: "2014 - 2016",
     },
+
   ]
 }
+const skills = {
+  title: "My skills",
+  description:
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui, officia deserunt mollit anim id est laborum.",
+  skillList: [
+    {
+      icon: <FaHtml5 />,
+      name: "html 5",
+    },
+    {
+      icon: <FaCss3 />,
+      name: "CSS",
+    },
+    {
+      icon: <FaJs />,
+      name: "javascript",
+    },
+    {
+      icon: <FaReact />,
+      name: "ReactJs",
+    },
+    {
+      icon: <SiNextdotjs />,
+      name: "NextJs",
+    },
+    {
+      icon: <SiTailwindcss />,
+      name: "Tailwind.css",
+    },
+    {
+      icon: <FaNodeJs />,
+      name: "NodeJs",
+    },
+    {
+      icon: <FaFigma />,
+      name: "Figma",
+    },
+
+  ]
+}
+import { Tabs, TabsContent, TabsList, TabsTrigger} from '@/components/ui/tabs'
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from '@/components/ui/tooltip'
+import { ScrollArea } from '@/components/ui/scroll-area';
+import { motion } from "framer-motion";
+
 function Services() {
   return (
     <div>Page resume</div>
