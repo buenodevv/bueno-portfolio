@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import {
   FaHtml5,
   FaCss3,
@@ -7,14 +7,15 @@ import {
   FaReact,
   FaFigma,
   FaGithub,
-} from "react-icons/fa"
+} from "react-icons/fa";
 
-import { SiTailwindcss, SiNextdotjs } from "react-icons/si"
+import { SiTailwindcss, SiNextdotjs } from "react-icons/si";
 
 //about data
 const about = {
   title: "About Me",
-  description: "I'm a full stack developer with a passion for creating user-friendly and efficient web applications.",
+  description:
+    "I'm a full stack developer with a passion for creating user-friendly and efficient web applications.",
   Info: [
     {
       fieldName: "Name",
@@ -48,12 +49,13 @@ const about = {
       fieldName: "Languages",
       fieldValue: "English, Portuguese",
     },
-  ]
+  ],
 };
 const experience = {
-  icon: 'assets/resume/badge.svg',
+  icon: "assets/resume/badge.svg",
   title: "My experience",
-  description: "I'm a full stack developer with a passion for creating user-friendly and efficient web applications.",
+  description:
+    "I'm a full stack developer with a passion for creating user-friendly and efficient web applications.",
   itens: [
     {
       company: "Tech Solutions Inc ",
@@ -84,13 +86,14 @@ const experience = {
       company: "Software Development Company",
       position: "Junior Developer",
       duration: "2017 - 2018",
-    }
-  ]
-}
+    },
+  ],
+};
 const education = {
-  icon: 'assets/resume/cap.svg',
+  icon: "assets/resume/cap.svg",
   title: "My education",
-  description: "I'm a full stack developer with a passion for creating user-friendly and efficient web applications.",
+  description:
+    "I'm a full stack developer with a passion for creating user-friendly and efficient web applications.",
   itens: [
     {
       institution: "Online Course Plataform",
@@ -122,9 +125,8 @@ const education = {
       course: "Associate Degree in Computer Science",
       duration: "2014 - 2016",
     },
-
-  ]
-}
+  ],
+};
 const skills = {
   title: "My skills",
   description:
@@ -162,18 +164,76 @@ const skills = {
       icon: <FaFigma />,
       name: "Figma",
     },
-
-  ]
-}
-import { Tabs, TabsContent, TabsList, TabsTrigger} from '@/components/ui/tabs'
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from '@/components/ui/tooltip'
-import { ScrollArea } from '@/components/ui/scroll-area';
+  ],
+};
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import { motion } from "framer-motion";
 
 function Services() {
   return (
-    <div>Page resume</div>
-  )
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{
+        opacity: 1,
+        transition: { delay: 2.4, duration: 0.4, ease: "easeIn" },
+      }}
+      className="min-h-[80vh] flex items-center justify-center py-12 xl:py-0"
+    >
+      <div className="container mx-auto">
+        <Tabs
+          defaultValue="experience"
+          className="flex flex-col xl:flex-row gap-[60px]"
+        >
+          <TabsList className="flex flex-col w-full max-w-[380px] mx-auto xl:mx-0">
+            <TabsTrigger value="experience">Experience</TabsTrigger>
+            <TabsTrigger value="education">Education</TabsTrigger>
+            <TabsTrigger value="skills">Skills</TabsTrigger>
+            <TabsTrigger value="aboutme">About Me</TabsTrigger>
+          </TabsList>
+          {/* Content */}
+          <div className="min-h-[70vh] w-full">
+            {/* Experience */}
+            <TabsContent className="w-full" value="experience">
+              <div className="flex flex-col gap-[30px] text-center xl:text-left">
+                <h3 className="text-4xl font-bold">{experience.title}</h3>
+                <p className=" max-w-[600px] text-white/60 mx-auto xl:mx-0">{experience.description}</p>
+                <ScrollArea className="h-480px">
+                  <ul className="grid grid-col-1 lg:grid-cols-2 gap-[30px]">
+                    {experience.itens.map((item, index) => {
+                      return (
+                        <li key={index} className=" bg-[#232329] h-[184px] py-6 px-10 rounded-lg flex flex-col gap-1 justify-center items-center lg:items-start">
+                          <span>{item.duration}</span>
+                          <h3>{item.position}</h3>
+                          <div>
+                            {/*dot*/}
+                            <span></span>
+                            <p>{item.company}</p>
+                          </div>
+                        </li>
+                      )
+                    })}
+                  </ul>
+                </ScrollArea>
+              </div>
+            </TabsContent>
+            {/* Education */}
+            <TabsContent className="w-full" value="education">Education</TabsContent>
+            {/* Skills */}
+            <TabsContent className="w-full" value="skills">Skills</TabsContent>
+            {/* AboutMe */}
+            <TabsContent className="w-full" value="aboutme">AboutMe</TabsContent>
+          </div>
+        </Tabs>
+      </div>
+    </motion.div>
+  );
 }
 
-export default Services
+export default Services;
