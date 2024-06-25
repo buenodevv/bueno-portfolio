@@ -203,67 +203,30 @@ function Services() {
             <TabsContent className="w-full" value="experience">
               <div className="flex flex-col gap-[30px] text-center xl:text-left">
                 <h3 className="text-4xl font-bold">{experience.title}</h3>
-                <p className=" max-w-[600px] text-white/60 mx-auto xl:mx-0">
-                  {experience.description}
-                </p>
-                <ScrollArea className="h-[400px]">
+                <p className=" max-w-[600px] text-white/60 mx-auto xl:mx-0">{experience.description}</p>
+                <ScrollArea className="h-480px">
                   <ul className="grid grid-col-1 lg:grid-cols-2 gap-[30px]">
                     {experience.itens.map((item, index) => {
                       return (
-                        <li
-                          key={index}
-                          className=" bg-[#232329] h-[184px] py-6 px-10 rounded-lg flex flex-col gap-1 
-                        justify-center items-center lg:items-start"
-                        >
-                          <span className="text-rb">{item.duration}</span>
-                          <h3 className="text-xl max-w-[260px] min-h-[60px] text-center lg:text-left">
-                            {item.position}
-                          </h3>
-                          <div className="flex items-center gap-3">
+                        <li key={index} className=" bg-[#232329] h-[184px] py-6 px-10 rounded-lg flex flex-col gap-1 justify-center items-center lg:items-start">
+                          <span>{item.duration}</span>
+                          <h3>{item.position}</h3>
+                          <div>
                             {/*dot*/}
-                            <span className="w-[6px] h-[6px] bg-rb rounded-full"></span>
-                            <p className="text-white/60">{item.company}</p>
+                            <span></span>
+                            <p>{item.company}</p>
                           </div>
                         </li>
-                      );
+                      )
                     })}
                   </ul>
                 </ScrollArea>
               </div>
             </TabsContent>
             {/* Education */}
-            <TabsContent className="w-full" value="education">
-              <div className="flex flex-col gap-[30px] text-center xl:text-left">
-                <h3 className="text-4xl font-bold">{education.title}</h3>
-                <p className=" max-w-[600px] text-white/60 mx-auto xl:mx-0">
-                  {education.description}
-                </p>
-                <ScrollArea className="h-[400px]">
-                  <ul className="grid grid-col-1 lg:grid-cols-2 gap-[30px]">
-                    {education.itens.map((item, index) => {
-                      return (
-                        <li
-                          key={index}
-                          className=" bg-[#232329] h-[184px] py-6 px-10 rounded-lg flex flex-col gap-1 
-                        justify-center items-center lg:items-start"
-                        >
-                          <span className="text-rb">{item.duration}</span>
-                          <h3 className="text-xl max-w-[260px] min-h-[60px] text-center lg:text-left">
-                            {item.course}
-                          </h3>
-                          <div className="flex items-center gap-3">
-                            {/*dot*/}
-                            <span className="w-[6px] h-[6px] bg-rb rounded-full"></span>
-                            <p className="text-white/60">{item.institution}</p>
-                          </div>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </ScrollArea>
-              </div>
-            </TabsContent>
+            <TabsContent className="w-full" value="education">Education</TabsContent>
             {/* Skills */}
+<<<<<<< HEAD
             <TabsContent className="w-full h-full" value="skills">
               <div className="flex flex-col gap-[30px]">
                 <div className="flex flex-col gap-[30px] text-center xl:">
@@ -314,6 +277,11 @@ function Services() {
                 </ul>
               </div>
             </TabsContent>
+=======
+            <TabsContent className="w-full" value="skills">Skills</TabsContent>
+            {/* AboutMe */}
+            <TabsContent className="w-full" value="aboutme">AboutMe</TabsContent>
+>>>>>>> parent of 03a665f (feat: skill page added)
           </div>
         </Tabs>
       </div>
