@@ -6,7 +6,12 @@ import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
-import { BsArrowDownRight, BsArrowUp, BsArrowUpRight, BsGithub } from "react-icons/bs";
+import {
+  BsArrowDownRight,
+  BsArrowUp,
+  BsArrowUpRight,
+  BsGithub,
+} from "react-icons/bs";
 
 import {
   Tooltip,
@@ -55,10 +60,20 @@ const projects = [
 
 function Work() {
   const [projec, setProject] = useState(projects[0]);
+
+  const handleSlideChange = (swiper) => {
+    // Get the current slide index
+    const currentIndex = swiper.activeIndex;
+    // Update the project state with the current slide index
+    setProject(projects[currentIndex]);
+  };
   return (
     <motion.div
       initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
+      animate={{ 
+        opacity: 1,
+        transition: { delay: 2.4, duration: 0.4, ease: 'easeIn' } 
+      }}
       className="min-h-[80vh] flex flex-col justify-center py-12 xl:py-0"
     >
       <div className="container mx-auto">
@@ -70,7 +85,9 @@ function Work() {
                 {projec.num}
               </div>
               {/* project category */}
-              <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-rb-hover transition-all duration-500 capitalize">{projec.category}</h2>
+              <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-rb-hover transition-all duration-500 capitalize">
+                {projec.category}
+              </h2>
               {/* project description */}
               <p className="text-white/60">{projec.description}</p>
               {/* stack */}
@@ -81,7 +98,7 @@ function Work() {
                       {stack.name}
                       {index !== projec.stack.length - 1 && ","}
                     </li>
-                  )
+                  );
                 })}
               </ul>
               {/* border */}
@@ -117,7 +134,38 @@ function Work() {
               </div>
             </div>
           </div>
-          <div className="w-full xl:w-[50%]">slider</div>
+          <div className="w-full xl:w-[50%]">
+            <Swiper
+              spaceBetween={30}
+              slidesPerView={1}
+              className="xl:h-[520px] mb-12"
+              onSlideChange={handleSlideChange}
+            >
+              {projects.map((project, index) => {
+                return (
+                  <SwiperSlide key={index} className="w-full">
+                    <div className="h-[460px] relative-group flex justify-center top-0 bottom-0 items-center bg-pink-50/20">
+                      {/* overlay */}
+                      <div className="absolute w-full h-full bg-black/10 group-hover:bg-black/50 z-10">
+
+                      </div>
+                      {/* image */}
+                      <div className="w-full h-full relative">
+                        <Image
+                          src={project.image}
+                          alt={project.title}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                    </div>
+                  </SwiperSlide>
+                );
+              })}
+              {/* slid buttons */}
+              
+            </Swiper>
+          </div>
         </div>
       </div>
     </motion.div>
